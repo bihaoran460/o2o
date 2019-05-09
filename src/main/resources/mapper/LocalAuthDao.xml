@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bihaoran.o2o.dao.LocalAuthDao">
+
+	<resultMap type="com.bihaoran.o2o.entity.LocalAuth" id="localMap">
+		<id column="local_auth_id" property="localAuthId"/>
+		<result column="user_name" property="username"/>
+		<result column="password" property="password"/>
+		<result column="create_time" property="createTime"/>
+		<result column="last_edit_time" property="lastEditTime"/>
+		<association property="personInfo" column="user_id" javaType="com.bihaoran.o2o.entity.PersonInfo">
+			<id column="user_id" property="userId"/>
+			<result column="name" property="name"/>
+		</association>
+	</resultMap>
+	
+	 <select id="getLocalAuthByUserNameAndPassword" resultMap="localMap">
+		SELECT
+		l.local_auth_id,
+		l.user_name,
+		l.password,
+		l.create_time,
+		l.last_edit_time,
+		p.user_id,
+		p.name
+		FROM
+		tb_local_auth l,
+		tb_person_info p
+		WHERE
+		user_name=#{userName}
+		AND
+		password=#{password}
+		AND
+		l.user_id=p.user_id
+	</select>
+</mapper>
