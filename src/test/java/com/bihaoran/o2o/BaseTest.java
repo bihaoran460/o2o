@@ -1,6 +1,6 @@
 package com.bihaoran.o2o;
 /**
- * ÓÃÀ´³õÊ¼»¯ÅäÖÃ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author bihaoran
  *
  */
@@ -10,8 +10,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//¸æËßJunit SpringÅäÖÃÎÄ¼şÔÚÄÄ
-@ContextConfiguration({"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
+//ï¿½ï¿½ï¿½ï¿½Junit Springï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+@ContextConfiguration({"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml",
+	"classpath:spring/spring-redis.xml"})
 public class BaseTest {
 
 }
